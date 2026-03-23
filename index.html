@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PixelFreud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Crimson+Text:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="mobile-frame">
+      <div class="ornament ornament-top-left"></div>
+      <div class="ornament ornament-top-right"></div>
+      <div class="ornament ornament-bottom-left"></div>
+      <div class="ornament ornament-bottom-right"></div>
+
+      <main class="app-root">
+        <section id="mainView" class="screen screen-active" aria-label="Pantalla principal">
+          <header class="scene-panel cabinet-panel">
+            <div class="title-plaque">PIXELFREUD</div>
+
+            <div class="cabinet-stage">
+              <button id="prevInterpreterButton" class="cabinet-arrow" type="button" aria-label="Intérprete anterior">
+                ‹
+              </button>
+
+              <button class="side-interpreter side-left" id="leftInterpreterCard" type="button"></button>
+
+              <div class="center-stage">
+                <div class="curtain curtain-left"></div>
+                <div class="curtain curtain-right"></div>
+
+                <div class="desk-lamp">
+                  <span class="lamp-shade"></span>
+                  <span class="lamp-stem"></span>
+                </div>
+
+                <div class="book-stack">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div class="inkwell"></div>
+                <div class="interpreter-portrait active-portrait" id="mainInterpreterPortrait"></div>
+                <div class="desk-surface"></div>
+                <div class="desk-book"></div>
+              </div>
+
+              <button class="side-interpreter side-right" id="rightInterpreterCard" type="button"></button>
+
+              <button id="nextInterpreterButton" class="cabinet-arrow" type="button" aria-label="Siguiente intérprete">
+                ›
+              </button>
+            </div>
+
+            <div class="cabinet-footer">
+              <div>
+                <p id="activeInterpreterName" class="cabinet-name"></p>
+                <p id="activeInterpreterTagline" class="cabinet-tagline"></p>
+              </div>
+              <button id="bundleOfferButton" class="bundle-offer" type="button">
+                Desbloquear voces extra · Pack 9.99
+              </button>
+            </div>
+          </header>
+
+          <button id="newDreamButton" class="scene-panel journal-panel new-dream-panel" type="button">
+            <div class="journal-header">
+              <span class="divider"></span>
+              <h1>Nuevo Sueño</h1>
+              <span class="divider"></span>
+            </div>
+            <div class="journal-blank">
+              <p>Escribe tu sueño...</p>
+            </div>
+          </button>
+
+          <section class="scene-panel history-panel" aria-labelledby="historyTitle">
+            <div class="history-bar">
+              <span class="history-accent"></span>
+              <h2 id="historyTitle">Sueños Anteriores</h2>
+              <span class="history-accent"></span>
+            </div>
+
+            <div id="historyList" class="history-list"></div>
+          </section>
+        </section>
+
+        <section id="detailView" class="screen" aria-label="Sueño abierto" hidden>
+          <header class="scene-panel note-header-panel">
+            <button id="closeDetailButton" class="close-note-button" type="button" aria-label="Cerrar sueño">
+              ×
+            </button>
+            <button id="detailInterpreterButton" class="detail-nav detail-nav-left" type="button" aria-label="Intérprete anterior">
+              ‹
+            </button>
+            <h2 id="detailInterpreterName" class="note-title"></h2>
+            <button id="detailNextInterpreterButton" class="detail-nav detail-nav-right" type="button" aria-label="Siguiente intérprete">
+              ›
+            </button>
+          </header>
+
+          <section class="scene-panel open-note-panel">
+            <div class="dream-sheet">
+              <textarea
+                id="dreamEditor"
+                class="dream-editor"
+                placeholder="Escribe aquí lo que soñaste…"
+              ></textarea>
+            </div>
+
+            <div class="note-actions">
+              <button id="singleReadButton" class="wood-button wood-button-primary" type="button">
+                Interpretar sueño
+              </button>
+              <button id="historyReadButton" class="wood-button wood-button-secondary" type="button">
+                Interpretar con historial
+              </button>
+            </div>
+
+            <div id="lockedOffer" class="locked-offer" hidden>
+              <p id="lockedOfferText"></p>
+              <div class="locked-offer-actions">
+                <button id="unlockInterpreterButton" class="wood-button wood-button-secondary" type="button">
+                  Comprar intérprete
+                </button>
+                <button id="unlockBundleButton" class="wood-button wood-button-ghost" type="button">
+                  Comprar los 3 extras · 9.99
+                </button>
+              </div>
+            </div>
+
+            <div id="analysisStack" class="analysis-stack"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="historyItemTemplate">
+      <button class="history-item" type="button">
+        <span class="history-item-icon"></span>
+        <span class="history-item-title"></span>
+        <span class="history-item-date"></span>
+      </button>
+    </template>
+
+    <template id="analysisTemplate">
+      <article class="analysis-card">
+        <div class="analysis-avatar"></div>
+        <div class="analysis-content">
+          <div class="analysis-heading-row">
+            <h3 class="analysis-title"></h3>
+            <span class="analysis-mode"></span>
+          </div>
+          <p class="analysis-body"></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
